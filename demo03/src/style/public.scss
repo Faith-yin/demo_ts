@@ -1,0 +1,14 @@
+/*
+ * @Date: 2020-07-08 16:56:06
+ * @information: 公共样式
+ */ 
+
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.1s ease;
+  opacity: 1;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
