@@ -48,8 +48,24 @@ var square = {};
 square.color = 'blue';
 square.sideLength = 10;
 square.penWidth = 5.0;
-// console.log(square);
-// 008: 接口继承类
+function getCounter() {
+    var counter = function (start) {
+        console.log('counter -->', start);
+    };
+    counter.interval = 123;
+    counter.reset = function () {
+        console.log('reset');
+    };
+    return counter;
+}
+var c = getCounter();
+c(10);
+c.reset();
+c.interval = 456;
+console.log(c.interval);
+/**
+ * 接口继承类
+ */
 var Control = /** @class */ (function () {
     function Control() {
     }
@@ -71,9 +87,7 @@ var TextBox = /** @class */ (function (_super) {
     TextBox.prototype.select = function () { };
     return TextBox;
 }(Control));
-// 错误：“Image”类型缺少“state”属性。
-// class Image implements SelectableControl {
-//   select() { }
-// }
-// class Location {
+// 错误：“Image2”类型缺少“state”属性
+// class Image2 implements SelectableControl {
+//   select() {}
 // }

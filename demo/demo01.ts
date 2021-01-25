@@ -107,31 +107,79 @@ square.penWidth = 5.0
 // console.log(square);
 
 
-// 008: 接口继承类
+/**
+ * 混合类型
+ */
+interface Counter {
+  (start: number): string,
+  interval: number,
+  reset(): void,
+}
+
+function getCounter(): Counter {
+  let counter = <Counter>function(start: number) {
+    console.log('counter -->', start)
+  }
+  counter.interval = 123
+  counter.reset = function() {
+    console.log('reset')
+  }
+  return counter
+}
+
+let c = getCounter()
+c(10)
+c.reset()
+c.interval = 456
+
+console.log(c.interval)
+
+
+/**
+ * 接口继承类
+ */
 class Control {
   private state: any
 }
 
 interface SelectableControl extends Control {
-  select(): void;
+  select(): void
 }
 
 class Button extends Control implements SelectableControl {
-  select() { }
+  select() {}
 }
 
 class TextBox extends Control {
-  select() { }
+  select() {}
 }
 
-// 错误：“Image”类型缺少“state”属性。
-// class Image implements SelectableControl {
-//   select() { }
+// 错误：“Image2”类型缺少“state”属性
+// class Image2 implements SelectableControl {
+//   select() {}
 // }
 
-// class Location {
 
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
